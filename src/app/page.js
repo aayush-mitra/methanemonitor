@@ -10,7 +10,7 @@ import * as d3 from 'd3';
 
 import Image from 'next/image'
 // Dynamically load Leaflet components
-const MapWithNoSSR = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
+// const MapWithNoSSR = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
 
 export default function HomePage() {
   const [plumeData, setPlumeData] = useState([]);
