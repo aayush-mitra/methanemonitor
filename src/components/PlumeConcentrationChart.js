@@ -7,21 +7,24 @@ const PlumeConcentrationChart = ({ plumeData }) => {
 
   useEffect(() => {
     // Aggregate plume data by month
-    const aggregatePlumeDataByMonth = () => {
-      const monthlyData = Array(12).fill(0); // Assuming 12 months in a year
-
-      plumeData.forEach((plumes, monthIndex) => {
-        const sumMaxConcentration = plumes.reduce(
-          (acc, plume) => acc + plume.properties['Max Plume Concentration (ppm m)'],
-          0
-        );
-        monthlyData[monthIndex] = sumMaxConcentration;
-      });
-
-      setMonthlySums(monthlyData);
-    };
-
-    aggregatePlumeDataByMonth();
+    if (typeof window !== 'undefined') {
+      const aggregatePlumeDataByMonth = () => {
+        const monthlyData = Array(12).fill(0); // Assuming 12 months in a year
+  
+        plumeData.forEach((plumes, monthIndex) => {
+          const sumMaxConcentration = plumes.reduce(
+            (acc, plume) => acc + plume.properties['Max Plume Concentration (ppm m)'],
+            0
+          );
+          monthlyData[monthIndex] = sumMaxConcentration;
+        });
+  
+        setMonthlySums(monthlyData);
+      };
+  
+      aggregatePlumeDataByMonth();
+    }
+    
   }, [plumeData]);
 
   return <BarChart data={monthlySums} />;
