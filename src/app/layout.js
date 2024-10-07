@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import 'leaflet/dist/leaflet.css'
 import "./globals.css";
-import Provider from '../components/Provider'
+// import Provider from '../components/Provider'
 import Nav from '../components/Nav'
 export const metadata = {
   title: "NASA Space Apps Challenge",
